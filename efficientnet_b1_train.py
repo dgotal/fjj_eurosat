@@ -48,7 +48,7 @@ class CustomEfficientNet(nn.Module):
         super(CustomEfficientNet, self).__init__()
         self.efficientnet = EfficientNet.from_pretrained('efficientnet-b1')
         original_conv = self.efficientnet._conv_stem
-        self.efficientnet._conv_stem = nn.Conv2d(5, original_conv.out_channels,  # Smanjili smo broj kanala na 5
+        self.efficientnet._conv_stem = nn.Conv2d(5, original_conv.out_channels,
                                                  kernel_size=original_conv.kernel_size,
                                                  stride=original_conv.stride,
                                                  padding=original_conv.padding, bias=False)
